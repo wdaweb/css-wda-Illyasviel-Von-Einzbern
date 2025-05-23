@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*
+      最外面的尺寸是 0 ~ 575px 的樣式
+      如果之後尺寸沒有改變屬性與值，會一直影響後面佈局
+    */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        transition: 1s;
+      }
+
+      :root {
+        /* CSS 原生變數 */
+        --primary: blue;
+        --secondary: gray;
+        --success: green;
+        --info: lightblue;
+        --warning: orange;
+        --danger: red;
+        --windowWidth: 100vw;
+        --windowHeight: 100vh;
+      }
+
+      body {
+        /* viewport height */
+        /* body 一定要長高才會有空間可以做垂直置中 */
+        height: 100vh;
+        /* background: deeppink; */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        text-align: center;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+      }
+
+      .container {
+        background: #fff;
+        width: 95%;
+        margin: 1rem auto;
+        padding: 15px;
+        border: 1px solid #000;
+      }
+
+      .text-align-center {
+        text-align: center;
+      }
+
+      h1 {
+        color: #000;
+        text-align: left;
+      }
+
+      p {
+        margin-bottom: 0.5rem;
+        color: #000;
+      }
+
+      /* .sidebar {
+        display: none;
+        width: 150px;
+        color: White;
+        border-radius: 1rem;
+        padding: 1rem;
+        background: #000;
+        position: fixed;
+        left: 0;
+      } */
+
+      /* 設定許多響應式斷點，576px, 768px, 992px */
+      /* @media (min-width: 576px) {
+        body {
+          background-color: #666;
+        }
+      }
+
+      @media (min-width: 768px) {
+        body {
+          background-color: #999;
+        }
+      } */
+
+      @media (min-width: 992px) {
+        body {
+          background-color: #aaa;
+        }
+        .container {
+          width: 100%;
+          height: 100%;
+          position: relative;
+
+          /* display: none; */
+        }
+        img {
+          width: 150px;
+          height: 150px;
+        }
+
+        p {
+          visibility: none;
+          display: none;
+        }
+        hr {
+          visibility: none;
+          /* display: none; */
+        }
+        #wda {
+          position: absolute;
+          top: 30vh;
+          left: 45vw;
+          h1,
+          h2,
+          p {
+            display: block;
+          }
+        }
+        #html {
+          position: absolute;
+          top: 20vh;
+          left: 5vw;
+          text-align: left;
+          h1 {
+            display: block;
+          }
+        }
+        #htmlLine {
+          position: absolute;
+          top: 40vh;
+          left: 10vw;
+          transform-origin: top left;
+          transform: rotate(10deg);
+          width: calc(var(--windowWidth) / 3);
+        }
+        #css {
+          position: absolute;
+          top: 10vh;
+          left: 25vw;
+        }
+        #cssLine {
+          position: absolute;
+          top: 30vh;
+          left: 30vw;
+          transform-origin: top left;
+          transform: rotate(35deg);
+          width: calc(var(--windowWidth) / 6);
+        }
+        #js {
+          position: absolute;
+          top: 60vh;
+          left: 5vw;
+        }
+        #jsLine {
+          position: absolute;
+          top: 75vh;
+          left: 15vw;
+          transform-origin: top left;
+          transform: rotate(-20deg);
+          width: calc(var(--windowWidth) / 4);
+        }
+        #jq {
+          position: absolute;
+          top: 70vh;
+          left: 25vw;
+        }
+        #jqLine {
+          position: absolute;
+          top: 85vh;
+          left: 35vw;
+          transform-origin: top left;
+          transform: rotate(-45deg);
+          width: calc(var(--windowWidth) / 6);
+        }
+        #bs {
+          position: absolute;
+          top: 10vh;
+          left: 75vw;
+        }
+        #bsLine {
+          position: absolute;
+          top: 30vh;
+          left: 75vw;
+          transform-origin: top left;
+          transform: rotate(150deg);
+          width: calc(var(--windowWidth) / 7);
+        }
+        #sass {
+          position: absolute;
+          top: 40vh;
+          left: 80vw;
+        }
+        #sassLine {
+          position: absolute;
+          top: 50vh;
+          left: 80vw;
+          transform-origin: top left;
+          transform: rotate(180deg);
+          width: calc(var(--windowWidth) / 7);
+        }
+        #vue {
+          position: absolute;
+          top: 70vh;
+          left: 70vw;
+        }
+        #vueLine {
+          position: absolute;
+          top: 85vh;
+          left: 70vw;
+          transform-origin: top left;
+          transform: rotate(230deg);
+          width: calc(var(--windowWidth) / 7);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="wda">
+        <img src="./images/wda.png" />
+        <h1 class="text-align-center">泰山職訓局</h1>
+        <h2>從零開始的網頁設計課程</h2>
+        <p>
+          轉職網頁開發人員&nbsp;&nbsp;&nbsp;&nbsp;掌握就業必備職能<br />
+          由淺入深學習技術&nbsp;&nbsp;&nbsp;&nbsp;強化職場的競爭力<br />
+        </p>
+        <hr />
+      </div>
+      <div id="html">
+        <img src="./images/html.png" />
+        <h1>HTML</h1>
+        <p>
+          超文本標記語言（英語：HyperText Markup
+          Language，簡稱：HTML）是一種用於建立網頁的標準標記語言。<br />
+          HTML是一種基礎技術，常與CSS、JavaScript一起被眾多網站用於設計網頁、網頁應用程式以及行動應用程式的使用者介面。
+          <br />
+          網頁瀏覽器可以讀取HTML檔案，並將其彩現成視覺化網頁。<br />
+          HTML檔案以「.htm」和「.html」為檔名，是一種純文字檔案，可以使用記事本、寫字板等文字編輯器進行編輯，也可以使用Frontpage、Dreamweaver等網頁製作軟體進行快速建立與編輯。<br />
+          HTML描述了一個網站的結構語意隨著線索的呈現，使之成為一種標記語言而非程式語言。<br />
+        </p>
+      </div>
+      <hr id="htmlLine" />
+      <div id="css">
+        <img src="./images/css.png" />
+        <h1>CSS3</h1>
+        <p>
+          階層式樣式表（英語：Cascading Style
+          Sheets，縮寫：CSS；又稱串樣式列表、級聯樣式表、串接樣式表、階層式樣式表）<br />
+          是一種用來為結構化文件（如HTML文件或XML應用）添加樣式（字型、間距和顏色等）的電腦語言，由W3C定義和維護。<br />
+          CSS3現在已被大部分現代瀏覽器支援，而下一版的CSS4仍在開發中。<br />
+        </p>
+      </div>
+      <hr id="cssLine" />
+      <div id="js">
+        <img src="./images/js.png" />
+        <h1>JavaScript</h1>
+        <p>
+          JavaScript（通常縮寫為JS）是一門基於原型和頭等函式的多範式進階直譯程式語言，它支援物件導向程式設計、指令式編程和函數式程式設計。<br />它提供方法來操控文字、陣列、日期以及正規表示式等。<br />
+          不支援I/O，比如網路、儲存和圖形等，但這些都可以由它的宿主環境提供支援。<br />
+          它由Ecma透過ECMAScript實作語言的標準化。<br />
+          目前，它被世界上的絕大多數網站所使用，也被世界主流瀏覽器（Chrome、Firefox、Safari和Opera）所支援。<br />
+        </p>
+      </div>
+      <hr id="jsLine" />
+      <div id="jq">
+        <img src="./images/jq.png" />
+        <h1>jQuery</h1>
+        <p>
+          jQuery是一套跨瀏覽器的JavaScript函式庫，用於簡化HTML與JavaScript之間的操作。<br />
+          約翰·雷西格（JohnResig）在2006年1月的BarCamp
+          NYC上釋出了第一個版本。<br />
+          目前由DaveMethvin領導的團隊進行開發。<br />
+          全球前10,000個訪問最高的網站中，有65%使用了jQuery，是曾經最受歡迎的JavaScript函式庫。<br />
+        </p>
+      </div>
+      <hr id="jqLine" />
+      <div id="bs">
+        <img src="./images/bs.png" />
+        <h1>Bootstrap</h1>
+        <p>
+          Bootstrap是一組用於網站和網路應用程式開發的開源前端（所謂「前端」，指的是展現給終端使用者的介面。<br />
+          與之對應的「後端」是在伺服器上面執行的代碼）框架，包括HTML、CSS及JavaScript的框架，提供字體排印、表單、按鈕、導航及其他各種元件及Javascript擴充套件，旨在使動態網頁和Web應用的開發更加容易。<br />
+        </p>
+      </div>
+      <hr id="bsLine" />
+      <div id="sass">
+        <img src="./images/sass.png" />
+        <h1>Sass</h1>
+        <p>
+          Sass（英文全稱：Syntactically Awesome Stylesheets）是一個最初由Hampton
+          Catlin設計並由Natalie Weizenbaum開發的層疊樣式表語言。<br />
+          在開發最初版本之後，Weizenbaum和Chris
+          Eppstein繼續通過SassScript來繼續擴充Sass的功能。<br />
+          SassScript是一個在Sass檔案中使用的小型手稿語言。<br />
+        </p>
+      </div>
+      <hr id="sassLine" />
+      <div id="vue">
+        <img src="./images/vue.png" />
+        <h1>Vue.js</h1>
+        <p>
+          Vue.js（/vjuː/，簡稱Vue）是一個用於建立使用者介面的開源MVVM前端JavaScript框架，也是一個建立單頁應用的Web應用框架。<br />
+          Vue.js由尤雨溪建立，由他和其他活躍的核心團隊成員維護。<br />
+          2016年一項針對JavaScript框架的調查表明，Vue有著89%的開發者滿意度。<br />
+          在GitHub上，該專案平均每天能收穫95顆星，為GitHub有史以來星標數第3多的專案。<br />
+        </p>
+      </div>
+      <hr id="vueLine" />
+    </div>
+    <script>
+      const htmlLine = document.querySelector("#htmlLine");
+      const cssLine = document.querySelector("#cssLine");
+      const jsLine = document.querySelector("#jsLine");
+      const jqLine = document.querySelector("#jqLine");
+      const bsLine = document.querySelector("#bsLine");
+      const sassLine = document.querySelector("#sassLine");
+      const vueLine = document.querySelector("#vueLine");
+      const Load = () => {
+        const minWidth = window.innerWidth;
+        // console.log(minWidth);
+
+        if (minWidth >= 992) {
+          // console.log("大於992px");
+          setInterval(setLine, 200);
+        } else if (minWidth < 992) {
+          // console.log("小於992px");
+          clearInterval(setLine);
+        }
+      };
+      const setLine = () => {
+        // console.log("Set Success");
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const htmlLineWidth = Math.sqrt(
+          Math.pow(windowWidth / 3, 2) + Math.pow(windowHeight / 7, 2)
+        );
+        htmlLine.style.width = `${htmlLineWidth}px`;
+
+        const cssLineWidth = Math.sqrt(
+          Math.pow(windowWidth / 6, 2) + Math.pow(windowHeight / 7, 2)
+        );
+        cssLine.style.width = `${cssLineWidth}px`;
+
+        const jsLineWidth = Math.sqrt(
+          Math.pow(windowWidth / 4, 2) + Math.pow(windowHeight / 5, 2)
+        );
+        jsLine.style.width = `${jsLineWidth}px`;
+
+        const jqLineWidth = Math.sqrt(
+          Math.pow(windowWidth / 6, 2) + Math.pow(windowHeight / 6, 2)
+        );
+        jqLine.style.width = `${jqLineWidth}px`;
+
+        const bsLineWidth = Math.sqrt(
+          Math.pow(windowWidth / 11, 2) + Math.pow(windowHeight / 12, 2)
+        );
+        bsLine.style.width = `${bsLineWidth}px`;
+
+        const sassLineWidth = Math.sqrt(Math.pow(windowWidth / 7, 2));
+        sassLine.style.width = `${sassLineWidth}px`;
+
+        const vueLineWidth = Math.sqrt(
+          Math.pow(windowWidth / 7, 2) + Math.pow(windowHeight / 6, 2)
+        );
+        vueLine.style.width = `${vueLineWidth}px`;
+      };
+      setInterval(Load, 200);
+    </script>
+  </body>
+</html>
